@@ -14,7 +14,7 @@ async def wait_n(n: int, maxdelay: int) -> List[float]:
     wait_n should return the list of all the delays (float values).
     The list of the delays should be in ascending order without using
     sort() because of concurrency."""
-    dellist = [n]
+    dellist: List[float] = []
     dellist = [await wait_random(maxdelay) for _ in range(n)]
 
     return sorted(dellist)
