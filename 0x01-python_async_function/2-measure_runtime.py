@@ -14,4 +14,5 @@ def measure_time(n: int, max_delay: int) -> float:
     Use the time module to measure an approximate elapsed time."""
     start_time = time.time()
     asyncio.run(wait_n(n, max_delay))
-    return (time.time() - start_time) / n
+    end_time = time.time()
+    return (end_time - start_time) / n
