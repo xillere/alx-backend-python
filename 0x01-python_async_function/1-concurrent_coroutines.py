@@ -18,5 +18,3 @@ async def wait_n(n: int, maxdelay: int) -> List[float]:
     dellist = [await wait_random(maxdelay) for _ in range(n)]
 
     return sorted(dellist)
-
-
