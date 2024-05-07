@@ -16,11 +16,7 @@ async def wait_n(n: int, maxdelay: int) -> List[float]:
     sort() because of concurrency."""
     dellist = [n]
     dellist = [await wait_random(maxdelay) for _ in range(n)]
-    for i in range(n):
-        for j in range(0, n-i-1):
-            if dellist[j] > dellist[j+1]:
-                dellist[j], dellist[j+1] = dellist[j+1], dellist[j]
 
-    return dellist
+    return sorted(dellist)
 
 
