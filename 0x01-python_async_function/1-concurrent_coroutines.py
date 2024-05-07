@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """task 1 of async"""
+import asyncio
 from typing import List
 
 
@@ -15,6 +16,6 @@ async def wait_n(n: int, maxdelay: int) -> List[float]:
     The list of the delays should be in ascending order without using
     sort() because of concurrency."""
     dellist: List[float] = []
-    dellist = [await wait_random(maxdelay) for _ in range(n)]
+    dellist = await asyncio.gather(*[wait_random(maxdelay) for _ in range(n)])
 
     return sorted(dellist)
